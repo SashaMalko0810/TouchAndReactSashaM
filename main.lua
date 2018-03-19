@@ -6,7 +6,9 @@
 
 --create local variables for the sound
 local correctSound = audio.loadSound("Sounds/Correct Answer Sound Effect.mp3")
+local correctSoundChannel
 local wrongSound = audio.loadSound("Sounds/Wrong Buzzer Sound Effect.mp3")
+local wrongSoundChannel
 
 --set background colour
 display.setDefault("background", 5/255, 35/255, 156/255) 
@@ -57,7 +59,7 @@ local function BlueButtonListener(touch)
 		textObject.isVisible = true
 		greenCheck.isVisible = true
 		redX.isVisible = false
-		audio.play(correctSound)
+		correctSoundChannel = audio.play(correctSound)
 	    
 	end
 
@@ -67,7 +69,7 @@ local function BlueButtonListener(touch)
 		textObject.isVisible = false
 		greenCheck.isVisible = false
 		redX.isVisible = true
-		audio.play(wrongSound)
+		wrongSoundChannel = audio.play(wrongSound)
 	end
 end
 
